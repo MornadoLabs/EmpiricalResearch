@@ -135,6 +135,11 @@ namespace Lab1.Services
             return GetMiddleEmpericalMoment(4) / Math.Pow(GetMiddleStandardDeviation(), 4) - 3;
         }
 
+        
+        public List<double> GetSample()
+        {
+            return this.EmpericalSampleRepository.GetEmpericalSample();
+        }
 
         private List<double> GetSampleElements()
         {
