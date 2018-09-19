@@ -2,9 +2,16 @@
     ViewBag.Title = "Home Page";
 }
 @model Lab1.Models.EmpericalSampleViewModel
-<div class="row">
+<div class="row m-t-md">
     <div class="col-md-12">
-        <label id="inputData"></label>
+        <div class="row">
+            <div class="col-md-6">Емпірична вибірка</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="inputData"></table>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -34,7 +41,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-
+                        <table id="discreteRowByFrequency"></table>
                     </div>
                 </div>
             </div>
@@ -46,7 +53,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-
+                        <table id="discreteRowByVirtualFrequency"></table>
                     </div>
                 </div>
             </div>
@@ -100,11 +107,22 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12">
-        <canvas id="polygonChart" width="200" height="200"></canvas>
+    <div class="col-md-6 row-by-frequency">
+        <canvas class="small-chart" id="polygonChart" width="200" height="200"></canvas>
     </div>
+    <div class="col-md-6 row-by-virtual-frequency">
+        <canvas class="small-chart" id="virtualPolygonChart" width="200" height="200"></canvas>
+    </div>
+    <div class="col-md-6 row-by-frequency">
+        <canvas class="small-chart" id="cumulusChart" width="200" height="200"></canvas>
+    </div>
+    <div class="col-md-6 row-by-virtual-frequency">
+        <canvas class="small-chart" id="virtualCumulusChart" width="200" height="200"></canvas>
+    </div>    
 </div>
 
-<div class="display-hide">
-    <div></div>
+<div class="row m-t-md">
+    <div class="col-md-12">
+        <canvas class="big-chart" id="empericalChart" width="200" height="200"></canvas>
+    </div>   
 </div>

@@ -1,4 +1,6 @@
-﻿using Lab1.Repositories;
+﻿using Lab1.Models;
+using Lab1.Helpers;
+using Lab1.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -135,7 +137,62 @@ namespace Lab1.Services
             return GetMiddleEmpericalMoment(4) / Math.Pow(GetMiddleStandardDeviation(), 4) - 3;
         }
 
-        
+        public List<double> GetCumulusByFrequency()
+        {
+            var sample = this.GetDiscreteRowByFrequency();
+
+            if (sample.Count < 1)
+            {
+                return null;
+            }
+
+            var result = new List<double> { sample[sample.Keys.ToList()[0]] };
+
+            for (int i = 1; i < sample.Keys.Count; i++)
+            {
+                result.Add(result[i - 1] + sample[sample.Keys.ToList()[i]]);
+            }
+
+            return result;
+        }
+
+        public List<double> GetCumulusByVirtualFrequency()
+        {
+            var sample = this.GetDiscreteRowByVirtualFrequency();
+
+            if (sample.Count < 1)
+            {
+                return null;
+            }
+
+            var result = new List<double> { sample[sample.Keys.ToList()[0]] };
+
+            for (int i = 1; i < sample.Count; i++)
+            {
+                result.Add(result[i - 1] + sample[sample.Keys.ToList()[i]]);
+            }
+
+            return result;
+        }
+
+        public List<ChartViewModel> GetEmpericalFunction()
+        {
+            var sample = EmpericalSampleRepository.GetEmpericalSample();
+            var elements = GetSampleElements();
+            var dictionaryOfElements = new Dictionary<double, double>();
+
+            foreach (var element in elements)
+            {
+                dictionaryOfElements.Add(element, sample.Count(elem => elem < element) / (double)sample.Count);
+            }
+            var result = dictionaryOfElements.ToChartList().Round();
+            result.Add(new ChartViewModel { x = elements.Max(), y = 1 });
+
+            return result;
+        }
+
+
+
         public List<double> GetSample()
         {
             return this.EmpericalSampleRepository.GetEmpericalSample();
@@ -155,7 +212,7 @@ namespace Lab1.Services
         {
             return
                 EmpericalSampleRepository.GetEmpericalSample().Count(elem => elem == element) /
-                EmpericalSampleRepository.GetEmpericalSample().Count();
+                (double) EmpericalSampleRepository.GetEmpericalSample().Count();
         }
     }
 }

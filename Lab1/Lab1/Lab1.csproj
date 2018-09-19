@@ -148,7 +148,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ChartListHalper.cs" />
     <Compile Include="Helpers\DictionaryExtension.cs" />
+    <Compile Include="Helpers\ListExtension.cs" />
+    <Compile Include="Models\ChartsOutputViewModel.cs" />
     <Compile Include="Models\ChartViewModel.cs" />
     <Compile Include="Models\EmpericalSampleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

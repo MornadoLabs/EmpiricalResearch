@@ -47,9 +47,16 @@ namespace Lab1.Controllers
 
         public JsonResult LoadData()
         {
-            return Json(new {
-                Sample = EmpericalSampleService.GetSample(),
-                Data = EmpericalSampleService.GetDiscreteRowByFrequency().ToChartList()
+            return Json(new ChartsOutputViewModel
+            {
+                Sample = EmpericalSampleService.GetSample().ToChartList(),
+                DiscreteRowByFrequency = EmpericalSampleService.GetDiscreteRowByFrequency().ToChartList(),
+                DiscreteRowByVirtualFrequency = EmpericalSampleService.GetDiscreteRowByVirtualFrequency().ToChartList().Round(),
+                PolygonFrequency = EmpericalSampleService.GetDiscreteRowByFrequency().ToChartList(),
+                PolygonVirtualFrequency = EmpericalSampleService.GetDiscreteRowByVirtualFrequency().ToChartList().Round(),
+                CumulusFrequency = EmpericalSampleService.GetCumulusByFrequency().ToChartList(),
+                CumulusVirtualFrequency = EmpericalSampleService.GetCumulusByVirtualFrequency().ToChartList().Round(),
+                EmpericalFunction = EmpericalSampleService.GetEmpericalFunction()
             }, JsonRequestBehavior.AllowGet);
         }
     }
