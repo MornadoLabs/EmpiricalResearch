@@ -218,7 +218,6 @@
         initializeEmpericalChart(context: CanvasRenderingContext2D, data: ChartModel[], axesXLable: string, axesYLabel: string): Chart {
             let datasets = [];
             let points = [];
-            //datasets.push(new DatasetModel(data, false));
             datasets.push(new DatasetModel([new ChartModel(-100, data[0].y), data[0]], true, false));
 
             for (let i = 1; i < data.length; i++) {

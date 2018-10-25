@@ -16,7 +16,7 @@ namespace Lab1.Repositories
             4.4, 4.4, 4.4, 4.4, 4.6, 4.6, 4.6, 4.6, 4.6, 5,
         };
 
-        private List<double> EmpericalSample = new List<double>
+        public List<double> EmpericalSample { get; set; } = new List<double>
         {
             -5, -4.2, -4.2, -4.2,
             -2.9, -1.6, -1.6,

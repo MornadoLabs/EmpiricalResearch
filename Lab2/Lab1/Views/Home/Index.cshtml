@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Lab2.Models.EmpericalSampleViewModel
+
+<div class="row m-t-md">
+    <div class="col-md-12">
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(model => model.IsVirtual, false)
+                За частотами
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                @Html.RadioButtonFor(model => model.IsVirtual, true)
+                За відносними частотами
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row row-by-frequency">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">@Html.LabelFor(model => model.IntervalRowByFrequency)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="intervalRowByFrequency"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-by-virtual-frequency">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">@Html.LabelFor(model => model.IntervalRowByVirtualFrequency)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="intervalRowByVirtualFrequency"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">@Html.LabelFor(model => model.DiscreteRowByFrequency)</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="discreteRowByFrequency"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.MiddleEmpericalValue)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.MiddleEmpericalValue)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.Mode)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.Mode)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.Median)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.Median)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.Dispersion)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.Dispersion)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.MiddleStandardDeviation)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.MiddleStandardDeviation)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.Swing)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.Swing)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.VariationCoef)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.VariationCoef)%</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.AsymmetricalCoef)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.AsymmetricalCoef)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">@Html.LabelFor(model => model.Excess)</div>
+            <div class="col-md-4">@Html.DisplayFor(model => model.Excess)</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 row-by-frequency">
+        <canvas class="small-chart" id="histogramChart" width="200" height="200"></canvas>
+    </div>
+    <div class="col-md-6 row-by-virtual-frequency">
+        <canvas class="small-chart" id="virtualHistogramChart" width="200" height="200"></canvas>
+    </div> 
+    <div class="col-md-6 row-by-frequency">
+        <canvas class="small-chart" id="cumulusChart" width="200" height="200"></canvas>
+    </div>
+    <div class="col-md-6 row-by-virtual-frequency">
+        <canvas class="small-chart" id="virtualCumulusChart" width="200" height="200"></canvas>
+    </div>    
+</div>
+
+<div class="row m-t-md">
+    <div class="col-md-12">
+        <canvas class="big-chart" id="empericalChart" width="200" height="200"></canvas>
+    </div>   
+</div>

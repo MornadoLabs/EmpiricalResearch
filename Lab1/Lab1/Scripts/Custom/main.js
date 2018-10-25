@@ -181,7 +181,6 @@ var Lab1;
         Main.prototype.initializeEmpericalChart = function (context, data, axesXLable, axesYLabel) {
             var datasets = [];
             var points = [];
-            //datasets.push(new DatasetModel(data, false));
             datasets.push(new DatasetModel([new ChartModel(-100, data[0].y), data[0]], true, false));
             for (var i = 1; i < data.length; i++) {
                 var leftPoint = new ChartModel(data[i - 1].x, data[i].y);

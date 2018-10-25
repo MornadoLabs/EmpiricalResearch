@@ -17,6 +17,11 @@ namespace Lab1.Services
 
         private EmpericalSampleRepository EmpericalSampleRepository { get; set; }
         
+        public void SetEmpericalSample(List<double> empericalSample)
+        {
+            this.EmpericalSampleRepository.EmpericalSample = empericalSample;
+        }
+
 
         public Dictionary<double, int> GetDiscreteRowByFrequency()
         {
