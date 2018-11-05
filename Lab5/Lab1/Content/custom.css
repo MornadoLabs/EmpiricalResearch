@@ -1,0 +1,8 @@
+﻿
+tr th,
+tr td {
+    min-height: 50px;
+    min-width: 50px;
+    border: 1px solid;
+    text-align: center;
+}

@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Lab3.Models.EmpericalSampleViewModel
+<div class="row m-t-md">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6"><b>Емпірична вибірка</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="inputData"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="row">
+            <div class="col-md-12"><h3>Інтервальні оцінки для математичного сподівання коли дисперсія є відомою</h3></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark001.Importance): @Html.DisplayFor(model => model.Mark001.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark001.IntervalMarkForKnownDispersion.Start) < m < @Html.DisplayFor(model => model.Mark001.IntervalMarkForKnownDispersion.End)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark01.Importance): @Html.DisplayFor(model => model.Mark01.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark01.IntervalMarkForKnownDispersion.Start) < m < @Html.DisplayFor(model => model.Mark01.IntervalMarkForKnownDispersion.End)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark05.Importance): @Html.DisplayFor(model => model.Mark05.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark05.IntervalMarkForKnownDispersion.Start) < m < @Html.DisplayFor(model => model.Mark05.IntervalMarkForKnownDispersion.End)
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12"><h3>Інтервальні оцінки для математичного сподівання коли дисперсія є невідомою</h3></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark001.Importance): @Html.DisplayFor(model => model.Mark001.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark001.IntervalMarkForUnknownDispersion.Start) < m < @Html.DisplayFor(model => model.Mark001.IntervalMarkForUnknownDispersion.End)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark01.Importance): @Html.DisplayFor(model => model.Mark01.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark01.IntervalMarkForUnknownDispersion.Start) < m < @Html.DisplayFor(model => model.Mark01.IntervalMarkForUnknownDispersion.End)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark05.Importance): @Html.DisplayFor(model => model.Mark05.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark05.IntervalMarkForUnknownDispersion.Start) < m < @Html.DisplayFor(model => model.Mark05.IntervalMarkForUnknownDispersion.End)
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12"><h3>Інтервальні оцінки для середнього квадратичного відхилення</h3></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark001.Importance): @Html.DisplayFor(model => model.Mark001.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark001.IntervalMarkMiddleStandardDeviation.Start) < σ < @Html.DisplayFor(model => model.Mark001.IntervalMarkMiddleStandardDeviation.End)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark01.Importance): @Html.DisplayFor(model => model.Mark01.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark01.IntervalMarkMiddleStandardDeviation.Start) < σ < @Html.DisplayFor(model => model.Mark01.IntervalMarkMiddleStandardDeviation.End)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Mark05.Importance): @Html.DisplayFor(model => model.Mark05.Importance)
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Mark05.IntervalMarkMiddleStandardDeviation.Start) < σ < @Html.DisplayFor(model => model.Mark05.IntervalMarkMiddleStandardDeviation.End)
+            </div>
+        </div>
+        
+    </div>
+</div>

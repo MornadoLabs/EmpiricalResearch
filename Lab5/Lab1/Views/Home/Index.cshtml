@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Lab5.Models.OutputViewModel
+<div class="row m-t-md">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6"><b>Результати вимірювань</b></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="inputData">
+                    <tr>
+                        <th>#</th>
+                        <th>Час</th>
+                        <th>Вимірювання #1</th>
+                        <th>Вимірювання #2</th>
+                        <th>Вимірювання #3</th>
+                        <th>Вимірювання #4</th>
+                        <th>Середнє значення</th>
+                    </tr>
+
+                    @foreach(var row in Model.InputTable)
+                    {
+                        <tr>
+                            <td>@(Model.InputTable.IndexOf(row) + 1)</td>
+                            <td>@(row.Time != null ? row.Time.ToString() : "Середнє значення")</td>
+                            <td>@row.Experiment1</td>
+                            <td>@row.Experiment2</td>
+                            <td>@row.Experiment3</td>
+                            <td>@row.Experiment4</td>
+                            <td>@row.MiddleValue</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Q) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Q)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Q1) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Q1)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Q2) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Q2)</div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.S0) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S0)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.S1) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S1)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.S2) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S2)</div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Fem) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Fem)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Fcr) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Fcr)</div>
+        </div>
+    </div>
+</div>
