@@ -12,11 +12,11 @@
                 <table id="inputData">
                     <tr>
                         <th>#</th>
-                        <th>Час</th>
-                        <th>Вимірювання #1</th>
-                        <th>Вимірювання #2</th>
-                        <th>Вимірювання #3</th>
-                        <th>Вимірювання #4</th>
+                        <th>Напрямок,<br/>Час</th>
+                        <th>#1</th>
+                        <th>#2</th>
+                        <th>#3</th>
+                        <th>#4</th>
                         <th>Середнє значення</th>
                     </tr>
 
@@ -55,11 +55,16 @@
             <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Q2)</div>
         </div>
 
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Q3) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Q3)</div>
+        </div>
+
 
 
         <div class="row">
-            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.S0) =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S0)</div>
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.S) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S)</div>
         </div>
 
         <div class="row">
@@ -72,16 +77,53 @@
             <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S2)</div>
         </div>
 
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.S3) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.S3)</div>
+        </div>
+
 
 
         <div class="row">
-            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Fem) =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Fem)</div>
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.FemA) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.FemA)</div>
         </div>
 
         <div class="row">
-            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.Fcr) =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Fcr)</div>
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.FemB) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.FemB)</div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4"><b>Рівень значимості α = 0.01</b></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.FcrA001) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.FcrA001)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.FcrB001) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.FcrB001)</div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4"><b>Рівень значимості α = 0.05</b></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.FcrA005) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.FcrA005)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">@Html.LabelFor(model => model.FcrB005) =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.FcrB005)</div>
         </div>
     </div>
 </div>

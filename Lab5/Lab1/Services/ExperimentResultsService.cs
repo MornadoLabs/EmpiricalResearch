@@ -166,12 +166,14 @@ namespace Lab5.Services
             }
         }
 
-        public double Fcr
+        public double FcrA(double alpha)
         {
-            get
-            {
-                return (ExperimentResultsRepository.M - 1) / (double)(ExperimentResultsRepository.M * (ExperimentResultsRepository.N - 1));
-            }
+            return alpha == 0.01 ? 5.28 : 3.12;
+        }
+
+        public double FcrB(double alpha)
+        {
+            return alpha == 0.01 ? 26.6 : 8.64;
         }
 
         public List<InputTableViewModel> GetInputTable()
@@ -218,13 +220,20 @@ namespace Lab5.Services
             outputViewModel.Q = Math.Round(outputViewModel.Q, 4);
             outputViewModel.Q1 = Math.Round(outputViewModel.Q1, 4);
             outputViewModel.Q2 = Math.Round(outputViewModel.Q2, 4);
+            outputViewModel.Q3 = Math.Round(outputViewModel.Q3, 4);
 
-            outputViewModel.S0 = Math.Round(outputViewModel.S0, 4);
+            outputViewModel.S = Math.Round(outputViewModel.S, 4);
             outputViewModel.S1 = Math.Round(outputViewModel.S1, 4);
             outputViewModel.S2 = Math.Round(outputViewModel.S2, 4);
+            outputViewModel.S3 = Math.Round(outputViewModel.S3, 4);
             
-            outputViewModel.Fem = Math.Round(outputViewModel.Fem, 4);
-            outputViewModel.Fcr = Math.Round(outputViewModel.Fcr, 4);
+            outputViewModel.FemA = Math.Round(outputViewModel.FemA, 4);
+            outputViewModel.FemB = Math.Round(outputViewModel.FemB, 4);
+
+            outputViewModel.FcrA001 = Math.Round(outputViewModel.FcrA001, 4);
+            outputViewModel.FcrB001 = Math.Round(outputViewModel.FcrB001, 4);
+            outputViewModel.FcrA005 = Math.Round(outputViewModel.FcrA005, 4);
+            outputViewModel.FcrB005 = Math.Round(outputViewModel.FcrB005, 4);
         }
     }
 }

@@ -31,11 +31,17 @@ namespace Lab5.Controllers
                 Q = ExperimentResultsService.Q,
                 Q1 = ExperimentResultsService.Q1,
                 Q2 = ExperimentResultsService.Q2,
-                S0 = ExperimentResultsService.S0,
+                Q3 = ExperimentResultsService.Q3,
+                S = ExperimentResultsService.S,
                 S1 = ExperimentResultsService.S1,
                 S2 = ExperimentResultsService.S2,
-                Fem = ExperimentResultsService.Fem,
-                Fcr = ExperimentResultsService.Fcr
+                S3 = ExperimentResultsService.S3,
+                FemA = ExperimentResultsService.FemA,
+                FemB = ExperimentResultsService.FemB,
+                FcrA001 = ExperimentResultsService.FcrA(0.01),
+                FcrB001 = ExperimentResultsService.FcrB(0.01),
+                FcrA005 = ExperimentResultsService.FcrA(0.05),
+                FcrB005 = ExperimentResultsService.FcrB(0.05),
             };
             ExperimentResultsService.RoundOutputViewModel(model);
 
