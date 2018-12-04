@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model Lab7.Models.OutputViewModel
+
+<div class="row m-t-md">
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-12"><b>Метод найменших квадратів</b></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">Δ =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Delta)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">Δ<sub>𝛼</sub> =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.DeltaAlpha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">Δ<sub>𝛽</sub> =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.DeltaBetha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">𝛼 =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Alpha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">𝛽 =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Betha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">Δ′ =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.NotDelta)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">Δ<sub>𝛼</sub>′ =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.NotDeltaAlpha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">Δ<sub>𝛽</sub>′ =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.NotDeltaBetha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">𝛼′ =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.NotAlpha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 p-r-none">𝛽′ =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.NotBetha)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                y = 𝛼 + 𝛽 * x
+                <br /> 
+                y = @Html.DisplayFor(model => model.Alpha) + @Html.DisplayFor(model => model.Betha) * x
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                x = 𝛼′ + 𝛽′ * y
+                <br />
+                x = @Html.DisplayFor(model => model.NotAlpha) + @Html.DisplayFor(model => model.NotBetha) * y
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-md-12"><b>Із використанням коефіцієнта кореляції</b></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 p-r-none">r<sub>y|x</sub>* =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Ryorx)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 p-r-none">r<sub>x|y</sub>* =</div>
+            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Rxory)</div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                y = r<sub>y|x</sub>* (x - <span class="overline">x</span>) + <span class="overline">y</span>
+                <br />
+                y = @Html.DisplayFor(model => model.Ryorx) (x - @Html.DisplayFor(model => model.MiddleXValue)) + @Html.DisplayFor(model => model.MiddleYValue)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                x = r<sub>x|y</sub>* (y - <span class="overline">y</span>) + <span class="overline">x</span>
+                <br />
+                x = @Html.DisplayFor(model => model.Rxory) (y - @Html.DisplayFor(model => model.MiddleYValue)) + @Html.DisplayFor(model => model.MiddleXValue)
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <canvas class="small-chart" id="sqrMethodChart" width="200" height="200"></canvas>
+    </div>
+    <div class="col-md-6">
+        <canvas class="small-chart" id="coefMethodChart" width="200" height="200"></canvas>
+    </div>
+</div>

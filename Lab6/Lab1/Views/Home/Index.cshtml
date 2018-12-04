@@ -31,7 +31,9 @@
 
         <div class="row">
             <div class="col-md-4">
-                Нерівність Романовського 
+                <b>Нерівність Романовського</b> 
+                <br />
+                <br />
                 @Html.DisplayFor(model => model.BigRxy) ≥ @Html.DisplayFor(model => model.RomCoef)
             </div>
         </div>
@@ -83,9 +85,11 @@
             <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.R2xy001)</div>
         </div>
 
-        <div class="row">
+        <div class="row m-t-md">
             <div class="col-md-4">
-                r<sub>1xy</sub>* ≤ r<sub>xy</sub> ≤ r<sub>2xy</sub>*
+                <b>r<sub>1xy</sub>* ≤ r<sub>xy</sub> ≤ r<sub>2xy</sub>*</b>
+                <br />
+                <br />
                 @Html.DisplayFor(model => model.R1xy001) ≤ @Html.DisplayFor(model => model.Rxy) ≤ @Html.DisplayFor(model => model.R2xy001)
             </div>
         </div>
@@ -106,9 +110,11 @@
             <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.R2xy005)</div>
         </div>
 
-        <div class="row">
+        <div class="row m-t-md">
             <div class="col-md-4">
-                r<sub>1xy</sub>* ≤ r<sub>xy</sub> ≤ r<sub>2xy</sub>*
+                <b>r<sub>1xy</sub>* ≤ r<sub>xy</sub> ≤ r<sub>2xy</sub>*</b>
+                <br />
+                <br />
                 @Html.DisplayFor(model => model.R1xy005) ≤ @Html.DisplayFor(model => model.Rxy) ≤ @Html.DisplayFor(model => model.R2xy005)
             </div>
         </div>
