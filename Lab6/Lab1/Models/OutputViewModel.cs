@@ -19,14 +19,7 @@ namespace Lab6.Models
         public double R2xy001 { get; set; }
         public double R1xy005 { get; set; }
         public double R2xy005 { get; set; }
-
-
-
-        public double BigKxy { get; set; }
-        public double BigS0x { get; set; }
-        public double BigS0y { get; set; }
-        
-        public double BigRxy { get; set; }        
+               
         public double RomCoef { get; set; }
     }
 }

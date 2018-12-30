@@ -36,10 +36,6 @@ namespace Lab6.Controllers
                 R2xy001 = ExperimentResultsService.GetR2xy(0.01),
                 R1xy005 = ExperimentResultsService.GetR1xy(0.05),
                 R2xy005 = ExperimentResultsService.GetR2xy(0.05),
-                BigKxy = ExperimentResultsService.BigKxy,
-                BigS0x = ExperimentResultsService.BigS0x,
-                BigS0y = ExperimentResultsService.BigS0y,
-                BigRxy = ExperimentResultsService.BigRxy,
                 RomCoef = ExperimentResultsService.RomCoef
             };
             ExperimentResultsService.RoundOutputViewModel(model);

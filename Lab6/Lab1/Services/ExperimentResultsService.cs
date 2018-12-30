@@ -16,9 +16,6 @@ namespace Lab6.Services
 
         private ExperimentResultsRepository ExperimentResultsRepository { get; set; }
         
-        private double MiddleBigXValue => ExperimentResultsRepository.BigXSample.Sum() / (double)ExperimentResultsRepository.BigXSample.Count;
-        private double MiddleBigYValue => ExperimentResultsRepository.BigYSample.Sum() / (double)ExperimentResultsRepository.BigYSample.Count;
-
         private double MiddleXValue => ExperimentResultsRepository.XSample.Sum() / (double)ExperimentResultsRepository.XSample.Count;
         private double MiddleYValue => ExperimentResultsRepository.YSample.Sum() / (double)ExperimentResultsRepository.YSample.Count;
 
@@ -36,22 +33,7 @@ namespace Lab6.Services
                 return result / (sampleX.Count - 1);
             }
         }
-
-        public double BigKxy
-        {
-            get
-            {
-                double result = 0, middleX = MiddleBigXValue, middleY = MiddleBigYValue;
-                var sampleX = ExperimentResultsRepository.BigXSample;
-                var sampleY = ExperimentResultsRepository.BigYSample;
-                for (int i = 0; i < sampleX.Count; i++)
-                {
-                    result += (sampleX[i] - middleX) * (sampleY[i] - middleY);
-                }
-                return result / (sampleX.Count - 1);
-            }
-        }
-        
+                
         public double S0x
         {
             get
@@ -78,38 +60,10 @@ namespace Lab6.Services
                 return Math.Sqrt(result / (sampleY.Count - 1));
             }
         }
-
-        public double BigS0x
-        {
-            get
-            {
-                double result = 0, middleX = MiddleBigXValue;
-                var sampleX = ExperimentResultsRepository.BigXSample;
-                for (int i = 0; i < sampleX.Count; i++)
-                {
-                    result += Math.Pow((sampleX[i] - middleX), 2);
-                }
-                return Math.Sqrt(result / (sampleX.Count - 1));
-            }
-        }
-        public double BigS0y
-        {
-            get
-            {
-                double result = 0, middleY = MiddleBigYValue;
-                var sampleY = ExperimentResultsRepository.BigYSample;
-                for (int i = 0; i < sampleY.Count; i++)
-                {
-                    result += Math.Pow((sampleY[i] - middleY), 2);
-                }
-                return Math.Sqrt(result / (sampleY.Count - 1));
-            }
-        }
-
+        
         public double rxy => Kxy / (S0x * S0y);
-        public double BigRxy => BigKxy / (BigS0x * BigS0y);
 
-        public double RomCoef => 3 * (1 - BigRxy * BigRxy) / Math.Sqrt(ExperimentResultsRepository.BigXSample.Count);
+        public double RomCoef => 3 * (1 - rxy * rxy) / Math.Sqrt(ExperimentResultsRepository.XSample.Count);
 
         public double Z => Math.Log((1 + rxy) / (1 - rxy)) / 2;
 
@@ -134,10 +88,6 @@ namespace Lab6.Services
             outputViewModel.R1xy005 = Math.Round(outputViewModel.R1xy005, 4);
             outputViewModel.R2xy005 = Math.Round(outputViewModel.R2xy005, 4);
             
-            outputViewModel.BigKxy = Math.Round(outputViewModel.BigKxy, 4);
-            outputViewModel.BigS0x = Math.Round(outputViewModel.BigS0x, 4);
-            outputViewModel.BigS0y = Math.Round(outputViewModel.BigS0y, 4);
-            outputViewModel.BigRxy = Math.Round(outputViewModel.BigRxy, 4);
             outputViewModel.RomCoef = Math.Round(outputViewModel.RomCoef, 4);
         }
     }

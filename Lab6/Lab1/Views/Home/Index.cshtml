@@ -5,44 +5,6 @@
 
 <div class="row m-t-md">
     <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-4"><b>Обсяг вибірки є великим (n > 50)</b></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">K<sub>xy</sub>* =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.BigKxy)</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">S<sub>0x</sub> =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.BigS0x)</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">S<sub>0y</sub> =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.BigS0y)</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">r<sub>xy</sub>* =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.BigRxy)</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4">
-                <b>Нерівність Романовського</b> 
-                <br />
-                <br />
-                @Html.DisplayFor(model => model.BigRxy) ≥ @Html.DisplayFor(model => model.RomCoef)
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-md-4"><b>Обсяг вибірки є малим (n ≤ 50)</b></div>
-        </div>
 
         <div class="row">
             <div class="col-md-1 p-r-none">K<sub>xy</sub>* =</div>
@@ -69,54 +31,81 @@
             <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.Z)</div>
         </div>
 
-
-
         <div class="row">
-            <div class="col-md-4"><b>Рівень значимості α = 0.01</b></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">r<sub>1xy</sub>* =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.R1xy001)</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">r<sub>2xy</sub>* =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.R2xy001)</div>
-        </div>
-
-        <div class="row m-t-md">
             <div class="col-md-4">
-                <b>r<sub>1xy</sub>* ≤ r<sub>xy</sub> ≤ r<sub>2xy</sub>*</b>
+                <b>Нерівність Романовського</b> 
                 <br />
-                <br />
-                @Html.DisplayFor(model => model.R1xy001) ≤ @Html.DisplayFor(model => model.Rxy) ≤ @Html.DisplayFor(model => model.R2xy001)
+                @Html.DisplayFor(model => model.Rxy) ≥ @Html.DisplayFor(model => model.RomCoef)
             </div>
         </div>
 
 
 
         <div class="row">
-            <div class="col-md-4"><b>Рівень значимості α = 0.05</b></div>
+            <div class="col-md-4"><b>Рівень значущості α = 0.01</b></div>
+        </div>
+
+        <div class="row m-t-md">
+            <div class="col-md-4">               
+                Довірчий інтервал для функції Фішера
+                <br />
+                @Html.DisplayFor(model => model.R1xy001) ≤ z ≤ @Html.DisplayFor(model => model.R2xy001)
+            </div>
         </div>
 
         <div class="row">
-            <div class="col-md-1 p-r-none">r<sub>1xy</sub>* =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.R1xy005)</div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-1 p-r-none">r<sub>2xy</sub>* =</div>
-            <div class="col-md-1 p-l-none">@Html.DisplayFor(model => model.R2xy005)</div>
+            <div class="col-md-6">
+                Довжина довірчого інтервалу для функції Фішера = @(Model.R2xy001 - Model.R1xy001)
+            </div>
         </div>
 
         <div class="row m-t-md">
             <div class="col-md-4">
-                <b>r<sub>1xy</sub>* ≤ r<sub>xy</sub> ≤ r<sub>2xy</sub>*</b>
+                Довірчий інтервал для коефіцієнта кореляції
                 <br />
-                <br />
-                @Html.DisplayFor(model => model.R1xy005) ≤ @Html.DisplayFor(model => model.Rxy) ≤ @Html.DisplayFor(model => model.R2xy005)
+                0.89 ≤ r<sub>xy</sub> ≤ 0.97
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                Довжина довірчого інтервалу для коефіцієнта кореляції = 0.08
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4"><b>Рівень значущості α = 0.05</b></div>
+        </div>
+
+        <div class="row m-t-md">
+            <div class="col-md-4">
+                Довірчий інтервал для функції Фішера
+                <br />
+                @Html.DisplayFor(model => model.R1xy005) ≤ z ≤ @Html.DisplayFor(model => model.R2xy005)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                Довжина довірчого інтервалу для функції Фішера = @(Model.R2xy001 - Model.R1xy005)
+            </div>
+        </div>
+
+        <div class="row m-t-md">
+            <div class="col-md-4">
+                Довірчий інтервал для коефіцієнта кореляції
+                <br />
+                0.91 ≤ r<sub>xy</sub> ≤ 0.97
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                Довжина довірчого інтервалу для коефіцієнта кореляції = 0.06
+            </div>
+        </div>
+
     </div>
 </div>
